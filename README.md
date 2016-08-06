@@ -25,6 +25,8 @@
 
 **Open your browser: localhost:8000/places_list**
 
+** and localhost:8000/user_list**
+
 **The angular files is stored in jobs/static/jobs/src/service**
 
 **To see the tree of project, see app/app/urls.py**
