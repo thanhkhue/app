@@ -1,0 +1,66 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+          <link rel="stylesheet" href="static/bower_components/bootstrap/dist/css/bootstrap.css" />
+          <link rel="stylesheet" type="text/css" href="{% static 'jobs/css/places.css' %}" />
+          <script src="static/bower_components/jquery/dist/jquery.js"></script>
+          <script src="static/bower_components/angular/angular.js"></script>
+          <script src="static/bower_components/angular-animate/angular-animate.js"></script>
+          <script src="static/bower_components/angular-resource/angular-resource.js"></script>
+          <script src="static/bower_components/angular-route/angular-route.js"></script>
+          <script src="static/jobs/src/service/places.js"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+          <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDk-seD6z_VpbftdcV4evDCJiy90M1V8O0"></script>
+
+        </head>
+        <body ng-controller="AppController">
+          <div ng-repeat="item in places_list">
+            <div class="container">
+              <div class="grid_4">
+                <section class="box widget locations">
+                  <div >
+                    <div class="avatar">
+      {% verbatim %}
+        
+                  
+                    
+                      <img src={{item.image}}  />
+                    </div>
+                    <div class="details">
+                      <h2>
+                        <div>
+                          <h1>{{item.place_name}}</h1>
+                          <h2>{{item.country}}</h2>
+                          <div id="googleMap" class="middle"></div>
+                        </div>
+                      </h2>
+                      <p>{{item.lng}} - {{item.lat}}</p>
+                      <a href="https://www.google.com/maps/@1.2489641,103.810046,14z" class="btn btn-primary btn-block btn-large" target="_blank">View on maps</a>
+      {% endverbatim %}
+                
+                    </div>
+                  </div>
+                </div>
+              </section>
+              </div>
+            </div>
+          </div>
+        </body>
+        <script>
+        function initialize() {
+          var mapProp = {
+            center:new google.maps.LatLng(1.2378283,103.8066312),
+            zoom:12,
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+          };
+          var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+      </html>

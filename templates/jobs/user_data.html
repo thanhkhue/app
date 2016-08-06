@@ -1,0 +1,23 @@
+{% load staticfiles %}
+
+<html ng-app="app">
+<head>
+	<link rel="stylesheet" href="static/bower_components/bootstrap/dist/css/bootstrap.css" />
+	<script src="static/bower_components/jquery/dist/jquery.js"></script>
+	<script src="static/bower_components/angular/angular.js"></script>
+	<script src="static/bower_components/angular-animate/angular-animate.js"></script>
+	<script src="static/bower_components/angular-resource/angular-resource.js"></script>
+	<script src="static/bower_components/angular-route/angular-route.js"></script>
+	<script src="static/jobs/src/service/app.js"></script>
+</head>
+<body ng-controller="AppController">
+
+<div ng-repeat="post in posts">
+	{% verbatim %}
+	<p class="well">{{ post }}
+	</p>
+	{% endverbatim %}
+</div>
+
+</body>
+</html>
